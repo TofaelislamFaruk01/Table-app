@@ -1,9 +1,18 @@
 
+/* .navbar{
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px;
+} */
+
+
 
 
 .tableItems{
   display: flex;
-   flex-wrap: wrap;
+  
   justify-content: space-between;
   border-bottom: 2px solid rgb(145, 141, 141) ;
   padding-bottom: 3px;
@@ -12,7 +21,26 @@
 
 .tableCard{
 
-  width: 125px;
- 
+  max-width: 125px;
 
 }
+.hamImg{
+  width: 80px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+ .hamMenu{
+
+  position: absolute;
+  background-color: hsl(0, 0%, 87%);
+  max-width: 180px;
+  padding: 5px;
+  right: 0px;
+}
+
+.menuItem{
+  display: flex;
+}
+

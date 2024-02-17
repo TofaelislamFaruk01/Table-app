@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import download from '/projects/my-app2/src/download.png'
 import './App.css';
 import Header from './components/Header/Header';
+
 
 
 function App() {
@@ -12,8 +14,12 @@ function App() {
   const [categoryOpen, setCategoryOpen] = useState(true);
   const [dateOpen, setDateOpen] = useState(true);
   const [authorOpen, setAuthorOpen] = useState(true);
-  const [stausOpen, setStausOpen] = useState(true);
+  const [statusOpen, setStatusOpen] = useState(true);
   const [actionOpen, setActionOpen] = useState(true);
+
+
+  // for hamburger menu
+  const [menuopen, setMenuOpen] = useState(true);
 
   
 
@@ -32,7 +38,7 @@ const  tableData=[
       time:"11:26 AM"
     },
     author:"Admin",
-    staus:'Published',
+    status:'Published',
     action:'Edit',
 
   },
@@ -47,7 +53,7 @@ const  tableData=[
       time:"10:28 AM"
     },
     author:"Admin",
-    staus:'Draft',
+    status:'Draft',
     action:'Edit',
   }
 ]
@@ -59,7 +65,56 @@ const  tableData=[
     <>
     
       {/* header file */}
-      <Header></Header>
+     
+      <div className='navbar'>
+            <h2>Table Tittle</h2>
+            
+
+        </div>
+
+      <div>
+      { 
+      menuopen ?
+     
+      <img src={download} alt="" srcset="" className='hamImg' onClick={()=>setMenuOpen(!menuopen)}  />
+      :
+      <div className='hamMenu'>  
+      <h4>add or remove columns</h4>
+       <p onClick={()=>setMenuOpen(!menuopen)} >X</p> 
+        <div className='menuItem'>
+          <input onClick={()=>{setTileopen(!tileopen)}} type="checkbox" name="" id=""/>
+          <p>Title</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setPriceOpen(!priceOpen)}} type="checkbox" name="" id=""/>
+          <p>Price</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setCategoryOpen(!categoryOpen)}} type="checkbox" name="" id=""/>
+          <p>Category</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setDateOpen(!dateOpen)}} type="checkbox" name="" id=""/>
+          <p>Date</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setAuthorOpen(!authorOpen)}} type="checkbox" name="" id=""/>
+          <p>Author</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setStatusOpen(!statusOpen)}} type="checkbox" name="" id=""/>
+          <p>Status</p>
+        </div>
+        <div className='menuItem'>
+          <input onClick={()=>{setActionOpen(!actionOpen)}} type="checkbox" name="" id=""/>
+          <p>Action</p>
+        </div>
+      </div>
+    }
+    </div>
+
+
+
    
       
 
@@ -95,7 +150,7 @@ const  tableData=[
               <h4>Author</h4>
             </div>   
           }
-            { stausOpen&&
+            { statusOpen&&
             <div  className='tableCard'>
               <h4>Status</h4>
             </div>   
@@ -148,9 +203,9 @@ const  tableData=[
               <h4>{item?.author}</h4>
             </div>   
           }
-            { stausOpen&&
+            { statusOpen&&
             <div  className='tableCard'>
-              <h4>{item?.staus}</h4>
+              <h4>{item?.status}</h4>
             </div>   
           }
             {actionOpen &&
