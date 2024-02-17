@@ -1,2 +1,18 @@
 
 
+
+.tableItems{
+  display: flex;
+   flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(145, 141, 141) ;
+  padding-bottom: 3px;
+  align-items: center; 
+} 
+
+.tableCard{
+
+  width: 125px;
+ 
+
+}
